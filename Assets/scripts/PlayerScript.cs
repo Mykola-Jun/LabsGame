@@ -13,9 +13,20 @@ public class PlayerScript : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(speed.x * inputX, speed.y * inputY, 0);
-
+        
         movement *= Time.deltaTime;
 
         transform.Translate(movement);
+
+        bool shoot = Input.GetButtonDown("Fire1");
+        shoot |= Input.GetButtonDown("Fire2");
+        if (shoot)
+        {
+            WeaponScript weapon = GetComponent<WeaponScript>();
+            if (weapon !=null)
+            {
+                weapon.Attack(false);
+            }
+        }
     }
 }

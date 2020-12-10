@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class HealthScript : MonoBehaviour
 {
-
     public int hp = 2;
 
     public bool isEnemy = true;
 
-    void OnTriggerEnter2D (Collider2D collder)
+    void OnTriggerEnter2D (Collider2D collider)
     {
-        ShotScript shot = GetComponent<Collider>().gameObject.GetComponent<ShotScript>();
+        ShotScript shot = collider.gameObject.GetComponent<ShotScript>();
 
         if (shot != null)
         {
